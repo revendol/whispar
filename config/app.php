@@ -169,6 +169,8 @@ return [
          */
         //Entrust for User ACL
         Zizaco\Entrust\EntrustServiceProvider::class,
+        //Admin LTE
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         /*
          * Application Service Providers...
