@@ -1,0 +1,114 @@
+.logo-container{
+    left: 50px;
+    position: absolute;
+    top: 20px;
+     z-index: 3;
+}
+.logo-container .logo{
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #333333;
+    width: 60px;
+    float: left;
+}
+.logo-container .brand{
+    font-size: 18px;
+    color: #000000;
+    line-height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 80px;
+    color: #ffffff;
+    font-weight: bold;
+}
+.wizard-card{
+    min-height: 600px;
+    background-color: #1386f0;
+}
+.clearfix{
+    clear: both;
+}
+.margin-top-50{
+    margin-top: 50px;
+}
+.inside-image-background{
+    min-height: 400px;
+    margin: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.user-image{
+    height: 100px;
+}
+.user-image img{
+    border: 1px solid black;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    max-width: 110px;
+}
+.sign-in{
+    padding: 20px;
+}
+.header-for-page{
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.forgot-password,.already_sign_in_button{
+    float: right;
+    padding: 10px;
+    color: #ffffff;
+    transition: .3s;
+}
+.forgot-password:hover,.create-account-group a:hover,.already_sign_in_button:hover,.already_sign_in_button:focus{
+    color: #000;
+    text-decoration: none;
+}
+.create-account-group{
+    margin-top: 40px;
+}
+.create-account-group a{
+    color: #ffffff;
+    transition: .3s;
+}
+.form-control{
+    background-color: #ffffff;
+}
+.footer-item{
+    list-style-type: none;
+    color: #ffffff;
+    font-size: 20px;
+    float: left;
+    margin: 20px;
+}
+.footer-item a{
+    color: #ffffff;
+    text-decoration: none;
+}
+.footer-item a:hover{
+    color: #1386f0;
+    font-weight: bold;
+}
+.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning{
+    border-color: #ffffff;
+    color: #ffffff;
+}
+.navbar .navbar-nav > li > a.btn.btn-warning, .btn-warning:hover{
+    border-color: #ffffff;
+    color: #1386f0;
+    background-color: #ffffff;
+}
+.display-none{
+    display: none;
+}
+#forgot_password:active,#forgot_password:focus{
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .xs-hidden{
+        display: none;
+    }
+}
