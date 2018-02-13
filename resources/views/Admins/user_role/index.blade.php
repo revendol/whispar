@@ -19,10 +19,13 @@
                                     <thead>
                                     <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">SL.</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Role Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Permission Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >User Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >User Email</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Role Name</th>
                                         {{--Need to apply can make action--}}
+                                        @if(Auth::user()->can('user-role-crud'))
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Actions</th>
+                                        @endif
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -31,16 +34,20 @@
                                         <tr role="row" class="odd">
                                             <td class="sorting_1">{{$i++}}</td>
                                             <td>{{ $user_role->user()->name }}</td>
+                                            <td>{{ $user_role->user()->email }}</td>
                                             <td>{{ $user_role->role()->name }}</td>
                                             {{--Need to apply can make action--}}
+                                            @if(Auth::user()->can('user-role-crud'))
                                             <td>
-                                                <a href="{{ route('admin.user-role.edit',$user_role->id) }}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="{{ route('admin.user-role.edit',$user_role->user_id) }}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a onclick="event.preventDefault();document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></a>
-                                                <form id="delete-form" action="{{ route('admin.user-role.destroy',$user_role->id) }}" method="POST" style="display: none;">
+                                                <form id="delete-form" action="{{ route('admin.user-role.destroy',$user_role->user_id) }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
+                                                    <input type="hidden" name="role_id" value="{{$user_role->role_id}}">
                                                 </form>
                                             </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -48,9 +55,12 @@
                                     <tr>
                                         <th rowspan="1" colspan="1">SL.</th>
                                         <th rowspan="1" colspan="1">User Name</th>
+                                        <th rowspan="1" colspan="1">User Email</th>
                                         <th rowspan="1" colspan="1">Role Name</th>
                                         {{--Need to apply can make action--}}
+                                        @if(Auth::user()->can('user-role-crud'))
                                         <th rowspan="1" colspan="1">Actions</th>
+                                        @endif
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -61,7 +71,7 @@
                 <!-- /.box-body -->
             </div>
         </div>
-        @if(Auth::user()->can('provide-user-role'))
+        @if(Auth::user()->can('user-role-crud'))
              <div class="col-xs-12 col-md-12">
             <h3>Provide User Role</h3>
             @include('Admins.partials._error')

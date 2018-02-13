@@ -7,6 +7,7 @@ use App\User;
 use App\UserRole;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserRoleController extends Controller
 {
@@ -45,11 +46,15 @@ class UserRoleController extends Controller
             'role' => 'required',
             'user' => 'required'
         ]);
-        $userRole = new UserRole();
-        $userRole->user_id = $request->user;
-        $userRole->role_id = $request->role;
-        $userRole->save();
-        return back();
+        if(Auth::user()->can('user-role-crud')){
+            $userRole = new UserRole();
+            $userRole->user_id = $request->user;
+            $userRole->role_id = $request->role;
+            $userRole->save();
+            return back();
+        }
+        return view('Admins.permission');
+
     }
 
     /**
@@ -71,7 +76,12 @@ class UserRoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Auth::user()->can('user-role-crud')){
+            $user = User::where('id',$id)->first();
+            $roles = Role::all();
+            return view('Admins.user_role.edit',compact('user','roles'));
+        }
+        return view('Admins.permission');
     }
 
     /**
@@ -83,7 +93,14 @@ class UserRoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Auth::user()->can('user-role-crud')){
+            //Update user-role for user
+            $userRole = UserRole::where('user_id',$id)->firstOrFail();
+            $userRole->role_id = $request->role;
+            $userRole->save();
+            return back();
+        }
+        return view('Admins.permission');
     }
 
     /**
@@ -92,8 +109,13 @@ class UserRoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if(Auth::user()->can('user-role-crud')){
+            UserRole::where('user_id',$id)->where('role_id',$request->role_id)->delete();
+            return back();
+        }
+
+        return view('Admins.permission');
     }
 }

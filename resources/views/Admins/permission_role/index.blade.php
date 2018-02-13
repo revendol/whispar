@@ -21,6 +21,9 @@
                                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">SL.</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" >Role Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Permission Name</th>
+                                        @if(Auth::user()->can('permission-role-crud'))
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Permission Name</th>
+                                        @endif
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -30,6 +33,16 @@
                                             <td class="sorting_1">{{$i++}}</td>
                                             <td>{{ $permission_role->role()->name }}</td>
                                             <td>{{ $permission_role->permission()->name }}</td>
+                                            @if(Auth::user()->can('permission-role-crud'))
+                                                <td>
+                                                    <a onclick="event.preventDefault();document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></a>
+                                                    <form id="delete-form" action="{{ route('admin.permission-role.destroy',$permission_role->permission_id) }}" method="POST" style="display: none;">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <input type="hidden" name="role_id" value="{{$permission_role->role_id}}">
+                                                    </form>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -38,6 +51,9 @@
                                         <th rowspan="1" colspan="1">SL.</th>
                                         <th rowspan="1" colspan="1">Role Name</th>
                                         <th rowspan="1" colspan="1">Permission Name</th>
+                                        @if(Auth::user()->can('permission-role-crud'))
+                                        <th rowspan="1" colspan="1">Actions</th>
+                                        @endif
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -48,6 +64,7 @@
                 <!-- /.box-body -->
             </div>
         </div>
+        @if(Auth::user()->can('permission-role-crud'))
         <div class="col-xs-12 col-md-12">
             <h3>Add Permission on Role</h3>
             @include('Admins.partials._error')
@@ -94,6 +111,7 @@
                 </form>
             </div>
         </div>
+        @endif
     </div>
 @stop
 @section('js')

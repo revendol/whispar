@@ -23,8 +23,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        return view('Admins.role.index',compact('roles'));
+//        if(Auth::user()->can('role-crud')){
+            $roles = Role::all();
+            return view('Admins.role.index',compact('roles'));
+//        }
+//        return view('Admins.permission');
     }
 
     /**
@@ -45,16 +48,20 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-           'name' => 'required|min:3',
-            'display_name' => 'required|min:3'
-        ]);
-        $role = new Role();
-        $role->name = $request->name;
-        $role->display_name = $request->display_name;
-        $role->description = $request->description;
-        $role->save();
-        return back();
+        if(Auth::user()->can('role-crud')){
+            $this->validate($request,[
+                'name' => 'required|min:3',
+                'display_name' => 'required|min:3'
+            ]);
+            $role = new Role();
+            $role->name = $request->name;
+            $role->display_name = $request->display_name;
+            $role->description = $request->description;
+            $role->save();
+            return back();
+        }
+        return view('Admins.permission');
+
     }
 
     /**
@@ -76,8 +83,12 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::where('id',$id)->first();
-        return view('Admins.role.edit',compact('role'));
+        if(Auth::user()->can('role-crud')){
+            $role = Role::where('id',$id)->first();
+            return view('Admins.role.edit',compact('role'));
+        }
+        return view('Admins.permission');
+
     }
 
     /**
@@ -89,16 +100,20 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3',
-            'display_name' => 'required|min:3'
-        ]);
-        $role = Role::where('id',$id)->first();
-        $role->name = $request->name;
-        $role->display_name = $request->display_name;
-        $role->description = $request->description;
-        $role->save();
-        return back();
+        if(Auth::user()->can('role-crud')){
+            $this->validate($request,[
+                'name' => 'required|min:3',
+                'display_name' => 'required|min:3'
+            ]);
+            $role = Role::where('id',$id)->first();
+            $role->name = $request->name;
+            $role->display_name = $request->display_name;
+            $role->description = $request->description;
+            $role->save();
+            return back();
+        }
+        return view('Admins.permission');
+
     }
 
     /**
@@ -109,7 +124,10 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::where('id',$id)->delete();
-        return back();
+        if(Auth::user()->can('role-crud')){
+            $role = Role::where('id',$id)->delete();
+            return back();
+        }
+        return view('Admins.permission');
     }
 }

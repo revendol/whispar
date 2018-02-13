@@ -23,9 +23,11 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" >Description</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Created At</th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >Updated At</th>
+                                            @if(Auth::user()->can('role-crud'))
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" >
                                                 Actions
                                             </th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -37,6 +39,7 @@
                                             <td>{{ $role->description }}</td>
                                             <td>{{ date('D, M Y, H:i a',strtotime($role->created_at)) }}</td>
                                             <td>{{ date('D, M Y, H:i a',strtotime($role->updated_at)) }}</td>
+                                            @if(Auth::user()->can('role-crud'))
                                             <td>
                                                 <a href="{{ route('admin.roles.edit',$role->id) }}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a onclick="event.preventDefault();document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></a>
@@ -45,6 +48,7 @@
                                                     {{ method_field('DELETE') }}
                                                 </form>
                                             </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -55,7 +59,9 @@
                                         <th rowspan="1" colspan="1">Description</th>
                                         <th rowspan="1" colspan="1">Created At</th>
                                         <th rowspan="1" colspan="1">Updated At</th>
-                                        <th rowspan="1" colspan="1">Actions</th>
+                                        @if(Auth::user()->can('role-crud'))
+                                        <th rowspan="1" colspan="1">Actions
+                                        @endif
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -66,6 +72,7 @@
                 <!-- /.box-body -->
             </div>
         </div>
+        @if(Auth::user()->can('role-crud'))
         <div class="col-xs-12 col-md-12">
             <h3>Add Role</h3>
             @include('Admins.partials._error')
@@ -103,6 +110,7 @@
                 </form>
             </div>
         </div>
+        @endif
     </div>
 @stop
 @section('js')

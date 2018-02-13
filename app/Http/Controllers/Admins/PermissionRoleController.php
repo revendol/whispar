@@ -46,18 +46,23 @@ class PermissionRoleController extends Controller
      */
     public function store(Request $request)
     {
-        $permissions = $request->permission;
-        $role = $request->role;
-        foreach ($permissions as $permission){
-            if (!PermissionRole::where('role_id',$role)->where('permission_id',$permission)->first()){
-                $newPR = new PermissionRole();
-                $newPR->permission_id = $permission;
-                $newPR->role_id = $role;
-                $newPR->save();
+        if(Auth::user()->can('user-role-crud')){
+            $permissions = $request->permission;
+            $role = $request->role;
+            foreach ($permissions as $permission){
+                if (!PermissionRole::where('role_id',$role)->where('permission_id',$permission)->first()){
+                    $newPR = new PermissionRole();
+                    $newPR->permission_id = $permission;
+                    $newPR->role_id = $role;
+                    $newPR->save();
 //                PermissionRole::create(['permission_id'=>$permission,'role_id'=>$role]);
+                }
             }
+            return back();
         }
-        return back();
+
+        return view('Admins.permission');
+
     }
 
     /**
@@ -100,8 +105,13 @@ class PermissionRoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if(Auth::user()->can('user-role-crud')){
+            PermissionRole::where('permission_id',$id)->where('role_id',$request->role_id)->delete();
+            return back();
+        }
+
+        return view('Admins.permission');
     }
 }

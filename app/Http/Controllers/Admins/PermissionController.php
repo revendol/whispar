@@ -76,8 +76,12 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::where('id',$id)->first();
-        return view('Admins.permission.edit',compact('permission'));
+        if(Auth::user()->can('permission-crud')){
+            $permission = Permission::where('id',$id)->first();
+            return view('Admins.permission.edit',compact('permission'));
+        }
+        return view('Admins.permission');
+
     }
 
     /**
@@ -89,16 +93,19 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3',
-            'display_name' => 'required|min:3'
-        ]);
-        $role = Permission::where('id',$id)->first();
-        $role->name = $request->name;
-        $role->display_name = $request->display_name;
-        $role->description = $request->description;
-        $role->save();
-        return back();
+        if(Auth::user()->can('permission-crud')){
+            $this->validate($request,[
+                'name' => 'required|min:3',
+                'display_name' => 'required|min:3'
+            ]);
+            $role = Permission::where('id',$id)->first();
+            $role->name = $request->name;
+            $role->display_name = $request->display_name;
+            $role->description = $request->description;
+            $role->save();
+            return back();
+        }
+        return view('Admins.permission');
     }
 
     /**
@@ -109,7 +116,11 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        $role = Permission::where('id',$id)->delete();
-        return back();
+        if(Auth::user()->can('permission-crud')){
+            $role = Permission::where('id',$id)->delete();
+            return back();
+        }
+        return view('Admins.permission');
+
     }
 }

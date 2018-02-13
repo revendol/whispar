@@ -25,6 +25,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('roles', 'Admins\RoleController');
     Route::resource('user-role', 'Admins\UserRoleController');
     Route::resource('permission-role', 'Admins\PermissionRoleController');
-    Route::get('user-role/edit/{user-id}/{role-id}','Admins\UserRoleController@edit');
-    Route::get('user-role/delete/{user-id}/{role-id}','Admins\UserRoleController@destroy');
 });

@@ -8,6 +8,8 @@ class UserRole extends Model
 {
     protected $table = 'role_user';
 
+    protected $primaryKey = 'user_id';
+
     public function user(){
         return User::where('id',$this->user_id)->first();
     }

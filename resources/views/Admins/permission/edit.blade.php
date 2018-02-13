@@ -20,7 +20,7 @@
                         <div class="col-xs-12 col-sm-6 col-md-3">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Name" value="{{$permission->name}}">
+                                <input type="text" class="form-control" name="name" disabled="true" placeholder="Name" value="{{$permission->name}}">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3">
