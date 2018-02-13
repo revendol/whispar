@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>WHISPER</title>
+    <title>WISPER</title>
     <link rel="stylesheet" href="{{ url('') }}/css/bootstrap.css">
     <script src="{{ url('') }}/js/jquery.3.2.1.min.js"></script>
     <script src="{{ url('') }}/js/bootstrap.js"></script>
@@ -40,7 +40,7 @@
                                     <img src="/img/new_logo.png">
                                 </div>
                                 <div class="brand">
-                                    WHISPER
+                                    WISPER
                                 </div>
                             </div>
                         </a>

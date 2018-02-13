@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>WHISPER</b>',
+    'logo' => '<b>WISPER</b>',
 
     'logo_mini' => '<b>W</b>',
 
@@ -230,6 +230,12 @@ return [
                     'url'  => 'admin/templates',
                 ]
             ],
+        ],
+        'WISPER CORE',
+        [
+            'text'    => 'Wisper core',
+            'icon'    => 'check',
+            'url'  => 'admin/user-role',
         ],
         'LABELS',
         [
