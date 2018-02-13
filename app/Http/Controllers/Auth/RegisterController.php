@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\MasterMail;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -71,7 +73,15 @@ class RegisterController extends Controller
             'verify_token' => base64_encode(str_split($data['email'],strpos($data['email'],'@'))[0]."_".rand(1,9999).time())
         ]);
         if($user){
-            //
+            $link = route('user.activate', $user->verify_token);
+            $send_file = new MasterMail(
+                [
+                    'name'=> $user->name,
+                    'link' => $link
+                ],
+                'Registration'
+            );
+            Mail::to($user->email)->send($send_file);
         }
         return $user;
     }

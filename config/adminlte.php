@@ -216,6 +216,21 @@ return [
                 ]
             ],
         ],
+        'Email Campaign & Template',
+        [
+            'text'    => 'Email',
+            'icon'    => 'envelope',
+            'submenu' => [
+                [
+                    'text'    => 'Campaigns',
+                    'url'     => 'admin/campaigns'
+                ],
+                [
+                    'text' => 'Templates',
+                    'url'  => 'admin/templates',
+                ]
+            ],
+        ],
         'LABELS',
         [
             'text'       => 'Important',

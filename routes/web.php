@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('activate/{token}', 'Users\UserController@verifyEmail')->name('user.activate');
+
+Route::get('mail-check', 'Users\UserController@mailCheck');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -25,4 +28,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('roles', 'Admins\RoleController');
     Route::resource('user-role', 'Admins\UserRoleController');
     Route::resource('permission-role', 'Admins\PermissionRoleController');
+    Route::resource('campaigns', 'Admins\EmailCampaignController');
+    Route::resource('templates', 'Admins\EmailTemplateController');
+    Route::get('templates/{id}/raw', 'Admins\EmailTemplateController@row')->name('email.raw');
 });
