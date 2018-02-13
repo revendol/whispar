@@ -58,7 +58,7 @@ class RoleController extends Controller
             $role->display_name = $request->display_name;
             $role->description = $request->description;
             $role->save();
-            return back();
+            return back()->with('success','Role was saved successfully');
         }
         return view('Admins.permission');
 
@@ -110,7 +110,7 @@ class RoleController extends Controller
             $role->display_name = $request->display_name;
             $role->description = $request->description;
             $role->save();
-            return back();
+            return back()->with('success','Role was updated successfully');
         }
         return view('Admins.permission');
 
@@ -126,7 +126,7 @@ class RoleController extends Controller
     {
         if(Auth::user()->can('role-crud')){
             $role = Role::where('id',$id)->delete();
-            return back();
+            return back()->with('success','Role was deleted successfully');
         }
         return view('Admins.permission');
     }

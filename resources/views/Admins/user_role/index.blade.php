@@ -3,6 +3,7 @@
 @section('title', 'Admin Permission-Role')
 
 @section('content_header')
+    @include('Admins.partials._error')
     <h1>User & Roles</h1>
 @stop
 
@@ -74,7 +75,6 @@
         @if(Auth::user()->can('user-role-crud'))
              <div class="col-xs-12 col-md-12">
             <h3>Provide User Role</h3>
-            @include('Admins.partials._error')
             <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->

@@ -46,7 +46,7 @@ class PermissionRoleController extends Controller
      */
     public function store(Request $request)
     {
-        if(Auth::user()->can('user-role-crud')){
+        if(Auth::user()->can('permission-role-crud')){
             $permissions = $request->permission;
             $role = $request->role;
             foreach ($permissions as $permission){
@@ -58,7 +58,7 @@ class PermissionRoleController extends Controller
 //                PermissionRole::create(['permission_id'=>$permission,'role_id'=>$role]);
                 }
             }
-            return back();
+            return back()->with('success','Permission Role was saved successfully');
         }
 
         return view('Admins.permission');
@@ -107,9 +107,9 @@ class PermissionRoleController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        if(Auth::user()->can('user-role-crud')){
+        if(Auth::user()->can('permission-role-crud')){
             PermissionRole::where('permission_id',$id)->where('role_id',$request->role_id)->delete();
-            return back();
+            return back()->with('success','Permission role was deleted successfully');
         }
 
         return view('Admins.permission');

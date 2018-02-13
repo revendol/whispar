@@ -3,6 +3,7 @@
 @section('title', 'Admin Role')
 
 @section('content_header')
+    @include('Admins.partials._error')
     <h1>Permissions</h1>
 @stop
 
@@ -40,8 +41,8 @@
                                             @if(Auth::user()->can('permission-crud'))
                                             <td>
                                                 <a href="{{ route('admin.permissions.edit',$permission->id) }}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a onclick="event.preventDefault();document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></a>
-                                                <form id="delete-form" action="{{ route('admin.permissions.destroy',$permission->id) }}" method="POST" style="display: none;">
+                                                <a onclick="event.preventDefault();document.getElementById('delete-form{{ $permission->id }}').submit();"><i class="fa fa-trash"></i></a>
+                                                <form id="delete-form{{ $permission->id }}" action="{{ route('admin.permissions.destroy',$permission->id) }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                 </form>
@@ -73,7 +74,6 @@
         @if(Auth::user()->can('permission-crud'))
         <div class="col-xs-12 col-md-12">
             <h3>Add Permission</h3>
-            @include('Admins.partials._error')
             <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->

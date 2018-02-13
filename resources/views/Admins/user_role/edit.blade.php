@@ -3,6 +3,7 @@
 @section('title', 'Admin Permission-Role')
 
 @section('content_header')
+    @include('Admins.partials._error')
     <h1>Edit User & Roles</h1>
 @stop
 
@@ -10,7 +11,7 @@
     <div class="row">
         @if(Auth::user()->can('provide-user-role'))
             <div class="col-xs-12 col-md-12">
-                @include('Admins.partials._error')
+
                 <h4>Update role for <strong>{{$user->name}}</strong></h4>
                 <div class="box box-primary">
                     <!-- /.box-header -->

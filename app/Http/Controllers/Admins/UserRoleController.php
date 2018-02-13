@@ -51,7 +51,7 @@ class UserRoleController extends Controller
             $userRole->user_id = $request->user;
             $userRole->role_id = $request->role;
             $userRole->save();
-            return back();
+            return back()->with('success','User role was saved successfully');
         }
         return view('Admins.permission');
 
@@ -98,7 +98,7 @@ class UserRoleController extends Controller
             $userRole = UserRole::where('user_id',$id)->firstOrFail();
             $userRole->role_id = $request->role;
             $userRole->save();
-            return back();
+            return back()->with('success','User role was updated successfully');
         }
         return view('Admins.permission');
     }
@@ -113,7 +113,7 @@ class UserRoleController extends Controller
     {
         if(Auth::user()->can('user-role-crud')){
             UserRole::where('user_id',$id)->where('role_id',$request->role_id)->delete();
-            return back();
+            return back()->with('success','User role was deleted successfully');
         }
 
         return view('Admins.permission');

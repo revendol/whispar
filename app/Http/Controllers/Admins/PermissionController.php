@@ -45,16 +45,19 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|min:3',
-            'display_name' => 'required|min:3'
-        ]);
-        $role = new Permission();
-        $role->name = $request->name;
-        $role->display_name = $request->display_name;
-        $role->description = $request->description;
-        $role->save();
-        return back();
+        if(Auth::user()->can('permission-crud')){
+            $this->validate($request,[
+                'name' => 'required|min:3',
+                'display_name' => 'required|min:3'
+            ]);
+            $role = new Permission();
+            $role->name = $request->name;
+            $role->display_name = $request->display_name;
+            $role->description = $request->description;
+            $role->save();
+            return back()->with('success','Permission was saved successfully');
+        }
+        return view('Admins.permission');
     }
 
     /**
@@ -103,7 +106,7 @@ class PermissionController extends Controller
             $role->display_name = $request->display_name;
             $role->description = $request->description;
             $role->save();
-            return back();
+            return back()->with('success','Permission was updated successfully');
         }
         return view('Admins.permission');
     }
@@ -118,7 +121,7 @@ class PermissionController extends Controller
     {
         if(Auth::user()->can('permission-crud')){
             $role = Permission::where('id',$id)->delete();
-            return back();
+            return back()->with('success','Permission was deleted successfully');
         }
         return view('Admins.permission');
 

@@ -3,6 +3,7 @@
 @section('title', 'Admin Role')
 
 @section('content_header')
+    @include('Admins.partials._error')
     <h1>Roles</h1>
 @stop
 
@@ -42,8 +43,8 @@
                                             @if(Auth::user()->can('role-crud'))
                                             <td>
                                                 <a href="{{ route('admin.roles.edit',$role->id) }}"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a onclick="event.preventDefault();document.getElementById('delete-form').submit();"><i class="fa fa-trash"></i></a>
-                                                <form id="delete-form" action="{{ route('admin.roles.destroy',$role->id) }}" method="POST" style="display: none;">
+                                                <a onclick="event.preventDefault();document.getElementById('delete-form{{$role->id}}').submit();"><i class="fa fa-trash"></i></a>
+                                                <form id="delete-form{{$role->id}}" action="{{ route('admin.roles.destroy',$role->id) }}" method="POST" style="display: none;">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                 </form>
@@ -75,7 +76,6 @@
         @if(Auth::user()->can('role-crud'))
         <div class="col-xs-12 col-md-12">
             <h3>Add Role</h3>
-            @include('Admins.partials._error')
             <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->

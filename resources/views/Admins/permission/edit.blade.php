@@ -3,13 +3,13 @@
 @section('title', 'Admin Permission')
 
 @section('content_header')
+    @include('Admins.partials._error')
     <h1>Update Permission</h1>
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-xs-12 col-md-12">
-            @include('Admins.partials._error')
             <div class="box box-primary">
                 <!-- /.box-header -->
                 <!-- form start -->
