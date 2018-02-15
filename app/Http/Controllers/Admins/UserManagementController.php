@@ -88,4 +88,28 @@ class UserManagementController extends Controller
         }
         return back()->with('warning','User not found');
     }
+    //Add new user
+    public function addUser(Request $request){
+        $this->validate($request,[
+            'name'     => 'required|min:3',
+            'email'    => 'required|email',
+            'password' => 'required|confirmed|min:6'
+        ]);
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'username' => str_split($request->email,strpos($request->email,'@'))[0]."_".rand(1,9999),
+            'password' => bcrypt($request->password),
+            'status' => true,
+            'verify_token' => '',
+            'suspension_status' => false
+        ];
+        $user = User::create($data);
+        if($user){
+            //User creation email to user should send from here.
+
+            return back()->with('success','User was added successfully.');
+        }
+        return back()->with('warning','There was some problem with adding new user.');
+    }
 }

@@ -80,6 +80,50 @@
                 <!-- /.box-body -->
             </div>
         </div>
+
+        <div class="col-xs-12 col-md-12">
+            <h3>Add User</h3>
+            <div class="box box-primary">
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" action="{{ route('admin.add.user') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="box-body">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Password" onkeyup="passlength(this.value)" onkeydown="passlength(this.value)">
+                                <p class="help-block" id="pass_length"></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Confirm Password</label>
+                                <input type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password" onkeyup="confirmationPassword(this.value)" onkeydown="confirmationPassword(this.value)">
+                                <p class="help-block" id="confirmation_password"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @stop
 @section('js')
@@ -89,5 +133,25 @@
                 "pagingType": "full_numbers"
             } );
         } );
+        function confirmationPassword(val) {
+            var pas = $('#password').val();
+            if(pas === val){
+//                document.getElementById('confirmation_password').innerHTML = "Password matched.";
+                $('#confirmation_password').text("Password matched.");
+                $('#confirmation_password').css("color",'green');
+
+            } else {
+                $('#confirmation_password').text("Password didn't match!!");
+                $('#confirmation_password').css("color",'red');
+            }
+        }
+        function passlength(val) {
+            if(val.length<6){
+                $('#pass_length').text("Minimum 6 character required.");
+                $('#pass_length').css("color",'red');
+            } else {
+                $('#pass_length').text("");
+            }
+        }
     </script>
 @stop

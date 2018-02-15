@@ -26,14 +26,13 @@
                         <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="text" class="form-control" name="email" placeholder="Display Name" value="{{$user->email}}">
+                                <input type="email" class="form-control" name="email" placeholder="Display Name" value="{{$user->email}}">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Username</label>
                                 <input type="text" class="form-control" name="username" placeholder="Display Name" value="{{$user->username}}">
-                                {{--<input type="text" class="form-control" placeholder="Display Name">--}}
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-3 col-md-3">

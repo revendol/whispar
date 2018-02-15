@@ -37,4 +37,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('user-suspend/{id}', 'Admins\UserManagementController@suspendUser')->name('suspend.user');
     Route::get('user-edit/{id}', 'Admins\UserManagementController@editUser')->name('edit.user');
     Route::patch('user-update/{id}', 'Admins\UserManagementController@updateUser')->name('update.user');
+    Route::post('user-add', 'Admins\UserManagementController@addUser')->name('add.user');
 });
