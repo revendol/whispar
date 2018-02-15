@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -228,6 +228,24 @@ return [
                 [
                     'text' => 'Templates',
                     'url'  => 'admin/templates',
+                ]
+            ],
+        ],
+        [
+            'text'    => 'User Management',
+            'icon'    => 'user',
+            'submenu' => [
+                [
+                    'text'    => 'User List',
+                    'url'     => 'admin/user-list'
+                ],
+                [
+                    'text' => 'Manage User',
+                    'url'  => 'admin/user-manage',
+                ],
+                [
+                    'text' => 'Trash',
+                    'url'  => 'admin/user-trash',
                 ]
             ],
         ],

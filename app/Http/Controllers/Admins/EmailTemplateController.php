@@ -127,6 +127,8 @@ class EmailTemplateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $template = EmailTemplate::where('id',$id)->firstOrFail();
+        $template->delete();
+        return back()->with('success','Email template was deleted successfully.');
     }
 }

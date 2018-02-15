@@ -39,8 +39,13 @@
                                             <td> {{ $template->macros }} </td>
                                             <td class="text-center">
                                                 <span>
-                                                    <a href="{{route('admin.templates.show',$template->id)}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                    <a href="{{route('admin.templates.edit',$template->id)}}" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                    <a href="{{route('admin.templates.show',$template->id)}}" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="{{route('admin.templates.edit',$template->id)}}" title="Update"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a onclick="event.preventDefault();document.getElementById('delete-form{{$template->id}}').submit();" title="Delete"><i class="fa fa-trash"></i></a>
+                                                    <form id="delete-form{{$template->id}}" action="{{ route('admin.templates.destroy',$template->id) }}" method="POST" style="display: none;">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                    </form>
                                                 </span>
                                             </td>
                                         </tr>

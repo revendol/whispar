@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>WISPER</title>
+    <link rel="icon" href="{{ url('') }}/img/wisper-logo-small.jpg">
     <link rel="stylesheet" href="{{ url('') }}/css/bootstrap.css">
     <script src="{{ url('') }}/js/jquery.3.2.1.min.js"></script>
     <script src="{{ url('') }}/js/bootstrap.js"></script>
@@ -37,7 +38,7 @@
                         <a href="#">
                             <div class="logo-container">
                                 <div class="logo">
-                                    <img src="/img/new_logo.png">
+                                    <img src="/img/wisper-logo-large.png">
                                 </div>
                                 <div class="brand">
                                     WISPER

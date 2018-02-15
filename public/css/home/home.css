@@ -5,11 +5,10 @@
      z-index: 3;
 }
 .logo-container .logo{
-    overflow: hidden;
-    border-radius: 50%;
-    border: 1px solid #333333;
-    width: 60px;
     float: left;
+}
+.logo img{
+    width: 60px;
 }
 .logo-container .brand{
     font-size: 18px;
@@ -47,7 +46,7 @@
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    max-width: 110px;
+    max-width: 130px;
 }
 .sign-in{
     padding: 20px;

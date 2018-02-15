@@ -31,4 +31,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('campaigns', 'Admins\EmailCampaignController');
     Route::resource('templates', 'Admins\EmailTemplateController');
     Route::get('templates/{id}/raw', 'Admins\EmailTemplateController@row')->name('email.raw');
+    Route::get('user-list', 'Admins\UserManagementController@userList');
+    Route::get('user-manage', 'Admins\UserManagementController@manageUser');
+    Route::delete('user-delete/{id}', 'Admins\UserManagementController@deleteUser')->name('delete.user');
+    Route::get('user-suspend/{id}', 'Admins\UserManagementController@suspendUser')->name('suspend.user');
+    Route::get('user-edit/{id}', 'Admins\UserManagementController@editUser')->name('edit.user');
+    Route::patch('user-update/{id}', 'Admins\UserManagementController@updateUser')->name('update.user');
 });
