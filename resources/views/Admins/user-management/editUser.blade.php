@@ -66,6 +66,9 @@
         </div>
     </div>
 @stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@stop
 @section('js')
     <script>
         $('#verified-status-check-box').change(function () {

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Wisper',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>WISPER</b>',
+    'logo' => '<b><img style="height: 40px; width: 40px;margin-right: 5px;" src="/img/logo-small.jpg"/> Wisper</b>',
 
-    'logo_mini' => '<b>W</b>',
+    'logo_mini' => '<b><img style="height: 40px; width: 40px;" src="/img/logo-small.jpg"/></b>',
 
     /*
     |--------------------------------------------------------------------------

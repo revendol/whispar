@@ -101,4 +101,6 @@
         @endif
     </div>
 @stop
-
+@section('css')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@stop

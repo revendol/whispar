@@ -55,7 +55,9 @@
         </div>
     </div>
 @endsection
-
+@section('css')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@stop
 @section('js')
 
     <script src="{{url('')}}/js/ckeditor/ckeditor.js"></script>

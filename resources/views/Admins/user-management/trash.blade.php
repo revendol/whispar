@@ -74,6 +74,7 @@
 
 @section('css')
     <link href="{{url('')}}/js/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/admin/admin.css">
 @stop
 
 @section('js')
@@ -91,7 +92,7 @@
 
         $('#empty-trash').click(function () {
             swal({
-                    title: "Do you want to delete this entry?",
+                    title: "Do you want to empty your trash?",
                     text: "Are you sure?",
                     type: "info",
                     showCancelButton: true,
