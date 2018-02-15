@@ -38,4 +38,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::get('user-edit/{id}', 'Admins\UserManagementController@editUser')->name('edit.user');
     Route::patch('user-update/{id}', 'Admins\UserManagementController@updateUser')->name('update.user');
     Route::post('user-add', 'Admins\UserManagementController@addUser')->name('add.user');
+    Route::get('user-trash', 'Admins\UserManagementController@userTrash');
+    Route::get('restore-user/{id}', 'Admins\UserManagementController@restoreUser')->name('user.restore');
+    Route::delete('user-permanent-delete/{id}', 'Admins\UserManagementController@permanentDelete')->name('delete.user.permanent');
+    Route::get('empty-trash', 'Admins\UserManagementController@deleteAll');
 });

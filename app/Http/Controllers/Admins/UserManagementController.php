@@ -28,7 +28,7 @@ class UserManagementController extends Controller
     //delete user
     public function deleteUser($id){
         $user = User::where('id','=',$id)->firstOrFail();
-        $user->deleted_at = time();
+        $user->deleted_at = date('Y-m-d H:i:j');
         $user->save();
         return back()->with('success','User was deleted successfully');
     }
@@ -112,4 +112,29 @@ class UserManagementController extends Controller
         }
         return back()->with('warning','There was some problem with adding new user.');
     }
+
+    //Get user trash and return to it's view
+    public function userTrash(){
+        $users = User::where('deleted_at','!=',null)->get();
+        return view('Admins.user-management.trash',compact('users'));
+    }
+    //Restore user from trash
+    public function restoreUser($id){
+        $user = User::where('id',$id)->firstOrFail();
+        $user->deleted_at = null;
+        $user->save();
+        return back()->with('success','User was restored successfully.');
+    }
+    //Delete permanently
+    public function permanentDelete($id){
+        $user = User::where('id',$id)->firstOrFail();
+        $user->delete();
+        return back()->with('success','User was deleted successfully.');
+    }
+    //Empty trash
+    public function deleteAll(){
+        $user = User::where('deleted_at','!=',null)->delete();
+        return 'success';
+    }
+
 }
