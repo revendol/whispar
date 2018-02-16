@@ -216,7 +216,6 @@ return [
                 ]
             ],
         ],
-        'Email Campaign & Template',
         [
             'text'    => 'Email',
             'icon'    => 'envelope',

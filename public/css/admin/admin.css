@@ -1,3 +1,107 @@
 .main-header .logo .logo-lg{
     margin-left: -70px;
 }
+
+.box-btn{
+    position: relative;
+    margin-bottom: 20px;
+}
+.background-box,.information-box{
+    height: 150px;
+    width: 100%;
+}
+.information-box{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    line-height: .3rem;
+}
+.box-btn-icon{
+    font-size: 75px;
+    float: right;
+    padding: 25px;
+}
+.box-btn-number{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 45px;
+}
+.box-btn-description{
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.box-btn-anchor{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    background-color: rgba(0,0,0,.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    padding-top: 5px;
+}
+.box-btn-anchor span{
+    color: #ffffff;
+    font-size: 16px;
+}
+.box-orange{
+    background-color: rgba(255,97,0,.8);
+}
+.box-red{
+    background-color: rgba(255,12,0,.8);
+}
+.box-blue{
+    background-color: rgba(0,0,255,.8);
+}
+.box-green{
+    background-color: rgba(0,255,0,.8);
+}
+/*Jquery pie chart*/
+#jquery-script-menu {
+    position: fixed;
+    height: 90px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: 5px solid #316594;
+    background: #fff;
+    -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+    z-index: 999999;
+    padding: 10px 0;
+    -webkit-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+}
+
+.jquery-script-center {
+    width: 960px;
+    margin: 0 auto;
+}
+.jquery-script-center ul {
+    width: 212px;
+    float:left;
+    line-height:45px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.jquery-script-center a {
+    text-decoration:none;
+}
+.jquery-script-ads {
+    width: 728px;
+    height:90px;
+    float:right;
+}
+.jquery-script-clear {
+    clear:both;
+    height:0;
+}
+/*Jquery pie chart end*/
