@@ -96,19 +96,23 @@
                                     <form  method="POST" action="{{ route('register') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                            <input type="text" name="name" id="create_account_name" class="form-control" placeholder="Name" required>
+                                            <p class="help-block cname"></p>
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="Email or Phone" required>
+                                            <input type="email" name="email"  id="create_account_email" class="form-control" placeholder="Email or Phone" required>
+                                            <p class="help-block cemail"></p>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                            <input type="password" name="password"  id="create_account_password" class="form-control" placeholder="Password" required>
+                                            <p class="help-block cpass"></p>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+                                            <input type="password" name="password_confirmation"  id="create_account_confirm" class="form-control" placeholder="Confirm Password" required>
+                                            <p class="help-block cconp"></p>
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" class="btn btn-warning sign-in-btn" value="Sign UP">
+                                            <input type="submit" class="btn btn-warning sign-in-btn" id="sign-up-btn" value="Sign UP">
                                             <a class="already_sign_in_button" href="#" id="already_have_account">Already have an account?</a>
                                         </div>
                                     </form>

@@ -111,3 +111,15 @@
         display: none;
     }
 }
+.btn-warning:active,.btn-warning:focus{
+background-color: #ffffff;
+    color: #1386f0;
+}
+.btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active, .show > .btn-warning.dropdown-toggle{
+    color: #1386f0;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+.help-block{
+    color: #dc3545;
+}
