@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{url('')}}/img/logo-small.jpg">
     <title>@yield('title')</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ url('') }}/css/bootstrap-reboot.css">
     <link rel="stylesheet" href="{{ url('') }}/css/bootstrap.css">
     <link rel="stylesheet" href="{{ url('') }}/css/bootstrap-grid.css">
@@ -16,6 +16,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!--   Core JS Files   -->
     <script src="{{ url('') }}/js/users/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+    <script src="{{mix('js/app.js')}}" type="text/javascript"></script>
     @yield('styles')
 </head>
 <body>

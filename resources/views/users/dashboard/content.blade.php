@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper" id="app">
     <div class="" id="card">
         <div class="text-area">
             <textarea name="" id="status_text_area" class="form-control" cols="30" rows="5" placeholder="Share your thoughts...."></textarea>
@@ -48,7 +48,14 @@
                     </p>
                 </div>
                 <div class="like-comment-div">
-
+                    <div class="btn-group like-comment-button-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-link like-comment-button">Share</button>
+                        <button type="button" class="btn btn-link like-comment-button">Comment</button>
+                        <button type="button" class="btn btn-link like-comment-button">Like</button>
+                    </div>
+                    <div class="comments">
+                        <comments></comments>
+                    </div>
                 </div>
             </div>
         </div>
