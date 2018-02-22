@@ -1,397 +1,383 @@
-@extends('adminlte::page')
-
-@section('title', 'Admin Dashboard')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
-
-@section('content')
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="box-btn">
-                <div class="background-box">
-                    <i class="fa fa-users box-btn-icon"></i>
-                </div>
-                <div class="information-box box-orange">
-                    <h1 class="box-btn-number">44</h1>
-                    <p class="box-btn-description">Registered User</p>
-                    <a href="#" class="box-btn-anchor">
-                        <span>More info &nbsp; <i class="fa fa-arrow-circle-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="box-btn">
-                <div class="background-box">
-                    <i class="fa fa-pie-chart box-btn-icon"></i>
-                </div>
-                <div class="information-box box-red">
-                    <h1 class="box-btn-number">65</h1>
-                    <p class="box-btn-description">Unique visitors</p>
-                    <a href="#" class="box-btn-anchor">
-                        <span>More info &nbsp; <i class="fa fa-arrow-circle-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="box-btn">
-                <div class="background-box">
-                    <i class="fa fa-user-plus box-btn-icon"></i>
-                </div>
-                <div class="information-box box-blue">
-                    <h1 class="box-btn-number">10</h1>
-                    <p class="box-btn-description">New user this month</p>
-                    <a href="#" class="box-btn-anchor">
-                        <span>More info &nbsp; <i class="fa fa-arrow-circle-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="box-btn">
-                <div class="background-box">
-                    <i class="fa fa-user-md box-btn-icon"></i>
-                </div>
-                <div class="information-box box-green">
-                    <h1 class="box-btn-number">10</h1>
-                    <p class="box-btn-description">Total employees</p>
-                    <a href="#" class="box-btn-anchor">
-                        <span>More info &nbsp; <i class="fa fa-arrow-circle-right"></i></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header" data-background-color="orange">
-                    <i class="fa fa-copy"></i>
-                </div>
-                <div class="card-content">
-                    <p class="category">Used Space</p>
-                    <h3 class="title">49/50
-                        <small>GB</small>
-                    </h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="fa fa-exclamation-triangle"></i>
-                        <a href="#pablo">Get More Space...</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header" data-background-color="green">
-                    <i class="fa fa-home"></i>
-                </div>
-                <div class="card-content">
-                    <p class="category">Revenue</p>
-                    <h3 class="title">$34,245</h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="fa fa-clock-o"></i> Last 24 Hours
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header" data-background-color="red">
-                    <i class="fa fa-info-circle"></i>
-                </div>
-                <div class="card-content">
-                    <p class="category">Fixed Issues</p>
-                    <h3 class="title">75</h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="fa fa-git"></i> Tracked from Github
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-                <div class="card-header" data-background-color="blue">
-                    <i class="fa fa-smile-o"></i>
-                </div>
-                <div class="card-content">
-                    <p class="category">Emoji</p>
-                    <h3 class="title">+245</h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="fa fa-clock-o"></i> Just Updated
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header card-chart" data-background-color="green">
-                    <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-content">
-                    <h4 class="title">Daily Sign ups</h4>
-                    <p class="category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sign ups.</p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="fa fa-clock-o"></i> updated 4 minutes ago
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-            <div class="card">
-                <div class="card-header" data-background-color="orange">
-                    <h4 class="title">Employees Stats</h4>
-                    <p class="category">New employees on 15th September, 2016</p>
-                </div>
-                <div class="card-content table-responsive">
-                    <table class="table table-hover">
-                        <thead class="text-warning">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Salary</th>
-                        <th>Country</th>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Dakota Rice</td>
-                            <td>$36,738</td>
-                            <td>Niger</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Minerva Hooper</td>
-                            <td>$23,789</td>
-                            <td>Curaçao</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Sage Rodriguez</td>
-                            <td>$56,142</td>
-                            <td>Netherlands</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Philip Chaney</td>
-                            <td>$38,735</td>
-                            <td>Korea, South</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-
-                <div class="header">
-                    <h4 class="title">Email Statistics</h4>
-                    <p class="category">Last Campaign Performance</p>
-                </div>
-                <div class="content">
-                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
-                    <div class="footer">
-                        <div class="legend">
-                            <i class="fa fa-circle text-info"></i> Open
-                            <i class="fa fa-circle text-danger"></i> Bounce
-                            <i class="fa fa-circle text-warning"></i> Unsubscribe
-                        </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-8">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Users Behavior</h4>
-                    <p class="category">24 Hours performance</p>
-                </div>
-                <div class="content">
-                    <div id="chartHours" class="ct-chart"></div>
-                    <div class="footer">
-                        <div class="legend">
-                            <i class="fa fa-circle text-info"></i> Open
-                            <i class="fa fa-circle text-danger"></i> Click
-                            <i class="fa fa-circle text-warning"></i> Click Second Time
-                        </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="fa fa-history"></i> Updated 3 minutes ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-8">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Visitors Report</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <div class="row">
-                        <div class="col-md-9 col-sm-8">
-                            <div class="pad">
-                                <!-- Map will be created here -->
-                                <div id="map1" style="width: 100%;height: 100%;"></div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-3 col-sm-4">
-                            <div class="pad box-pane-right bg-green" style="min-height: 280px">
-                                <div class="description-block margin-bottom">
-                                    <div class="sparkbar pad" data-color="#fff">
-                                        <canvas width="34" height="30" style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas></div>
-                                    <h5 class="description-header">8390</h5>
-                                    <span class="description-text">Visits</span>
-                                </div>
-                                <!-- /.description-block -->
-                                <div class="description-block margin-bottom">
-                                    <div class="sparkbar pad" data-color="#fff"><canvas width="34" height="30" style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas></div>
-                                    <h5 class="description-header">30%</h5>
-                                    <span class="description-text">Invites</span>
-                                </div>
-                                <!-- /.description-block -->
-                                <div class="description-block">
-                                    <div class="sparkbar pad" data-color="#fff"><canvas width="34" height="30" style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas></div>
-                                    <h5 class="description-header">70%</h5>
-                                    <span class="description-text">Organic</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.box-body -->
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Browser Usage</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="chart-responsive">
-                                <div id="pie"></div>
-                            </div>
-                            <!-- ./chart-responsive -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-4">
-                            <ul class="chart-legend clearfix">
-                                <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                                <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                                <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                                <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                                <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                                <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
-                            </ul>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer no-padding">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#">United States of America
-                                <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                        <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                        </li>
-                        <li><a href="#">China
-                                <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                    </ul>
-                </div>
-                <!-- /.footer -->
-            </div>
-        </div>
-    </div>
-@stop
-
-@section('css')
+@extends('admins.layouts.master')
+@section('title',' Admin Dashboard')
+@section('styles')
     <link rel="stylesheet" href="{{url('')}}/css/admin/admin.css">
-
     <!--  Material Dashboard CSS    -->
     <link href="{{url('')}}/css/admin/material-dashboard.css" rel="stylesheet" />
-
     <link rel="stylesheet" media="all" href="/css/admin/jvectorMap/jquery-jvectormap.css"/>
-@stop
+@endsection
+@section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+            @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>{{ $ret['new_user'] }}</h3>
 
-@section('js')
+                        <p>New User This Month</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>{{ $ret['total_employee'] }}</h3>
+
+                        <p>Total Employees</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>{{ $ret['user'] }}</h3>
+
+                        <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>{{ $ret['unique_visitor'] }}</h3>
+
+                        <p>Unique Visitors</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="orange">
+                        <i class="fa fa-copy"></i>
+                    </div>
+                    <div class="card-content">
+                        <?php
+                        $path = getcwd();
+                        $path = str_replace('\public','',$path);
+                        ?>
+                        <p class="category">Used Space</p>
+                        <h3 class="title">{{ round((disk_total_space($path)/(1024*1024*1024)) - (disk_free_space("../")/(1024*1024*1024)),2) }}/{{ round((disk_total_space($path)/(1024*1024*1024)),2) }}
+                            <small>GB</small>
+                        </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <a href="#pablo">Get More Space...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="green">
+                        <i class="fa fa-home"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Revenue</p>
+                        <h3 class="title">$34,245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="red">
+                        <i class="fa fa-info-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Fixed Issues</p>
+                        <h3 class="title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-git"></i> Tracked from Github
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="fa fa-smile-o"></i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Emoji</p>
+                        <h3 class="title">+245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> Just Updated
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-chart" data-background-color="green">
+                        <div class="ct-chart" id="dailySalesChart"></div>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="title">Daily Sign ups</h4>
+                        <p class="category">
+                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sign ups.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="fa fa-clock-o"></i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Employees Stats</h4>
+                        <p class="category">All employees on {{ date('t F,Y',time()) }}</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Country</th>
+                            </thead>
+                            <tbody>
+                            <?php $i = 1; ?>
+                            @foreach($ret['employees'] as $employee)
+                            <tr>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $employee->user()->name }}</td>
+                                <td>{{ $employee->role()->display_name }}</td>
+                                <td>{{ $employee->user()->profile() }}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+
+                    <div class="header">
+                        <h4 class="title">Email Statistics</h4>
+                        <p class="category">Last Campaign Performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                                <i class="fa fa-circle text-danger"></i> Bounce
+                                <i class="fa fa-circle text-warning"></i> Unsubscribe
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> Campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Users Behavior</h4>
+                        <p class="category">24 Hours performance</p>
+                    </div>
+                    <div class="content">
+                        <div id="chartHours" class="ct-chart"></div>
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                                <i class="fa fa-circle text-danger"></i> Click
+                                <i class="fa fa-circle text-warning"></i> Click Second Time
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-history"></i> Updated 3 minutes ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Visitors Report</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="row">
+                            <div class="col-md-9 col-sm-8">
+                                <div class="pad">
+                                    <!-- Map will be created here -->
+                                    <div id="map1" style="width: 100%;height: 100%;"></div>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-3 col-sm-4">
+                                <div class="pad box-pane-right bg-green" style="min-height: 280px">
+                                    <div class="description-block margin-bottom">
+                                        <div class="sparkbar pad" data-color="#fff" style="height: 50px;"></div>
+                                        <h5 class="description-header">8390</h5>
+                                        <span class="description-text">Visits</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                    <div class="description-block margin-bottom">
+                                        <div class="sparkbar pad" data-color="#fff" style="height: 50px;"></div>
+                                        <h5 class="description-header">30%</h5>
+                                        <span class="description-text">Referrals</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                    <div class="description-block">
+                                        <div class="sparkbar pad" data-color="#fff" style="height: 50px;"></div>
+                                        <h5 class="description-header">70%</h5>
+                                        <span class="description-text">Organic</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Browser Usage</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="chart-responsive">
+                                    <div id="pie"></div>
+                                </div>
+                                <!-- ./chart-responsive -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-4">
+                                <ul class="chart-legend clearfix">
+                                    <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
+                                    <li><i class="fa fa-circle-o text-green"></i> IE</li>
+                                    <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
+                                    <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
+                                    <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
+                                    <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
+                                </ul>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer no-padding">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#">United States of America
+                                    <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+                            <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
+                            </li>
+                            <li><a href="#">China
+                                    <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- /.footer -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+@endsection
+
+@section('scripts')
     <!--  Charts Plugin -->
     <script src="{{url('')}}/js/admin//chartist.min.js"></script>
-    <!--  Dynamic Elements plugin -->
-    <!--<script src="../assets/js/arrive.min.js"></script>-->
-    <!--  PerfectScrollbar Library -->
     <script src="{{url('')}}/js/admin//perfect-scrollbar.jquery.min.js"></script>
-    <!--  Notifications Plugin    -->
     <script src="{{url('')}}/js/admin/bootstrap-notify.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Material Dashboard javascript methods -->
     <script src="{{url('')}}/js/admin/material-dashboard.js"></script>
-    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{url('')}}/js/admin/demo.js"></script>
     <script src="{{url('')}}/js/admin/light-bootstrap-dashboard.js"></script>
     <script src="{{url('')}}/js/admin/light-dsh.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
             demo.initDashboardPageCharts();
             emailst.initChartist();
         });
     </script>
-
     <script src="/js/admin/jvectorMap/jquery-jvectormap.js"></script>
     <script src="/js/admin/jvectorMap/jquery-mousewheel.js"></script>
-
     <script src="/js/admin/jvectorMap/jvectormap.js"></script>
-
     <script src="/js/admin/jvectorMap/abstract-element.js"></script>
     <script src="/js/admin/jvectorMap/abstract-canvas-element.js"></script>
     <script src="/js/admin/jvectorMap/abstract-shape-element.js"></script>
-    <!---->
     <script src="/js/admin/jvectorMap/svg-element.js"></script>
     <script src="/js/admin/jvectorMap/svg-group-element.js"></script>
     <script src="/js/admin/jvectorMap/svg-canvas-element.js"></script>
@@ -400,7 +386,6 @@
     <script src="/js/admin/jvectorMap/svg-circle-element.js"></script>
     <script src="/js/admin/jvectorMap/svg-image-element.js"></script>
     <script src="/js/admin/jvectorMap/svg-text-element.js"></script>
-
     <script src="/js/admin/jvectorMap/vml-element.js"></script>
     <script src="/js/admin/jvectorMap/vml-group-element.js"></script>
     <script src="/js/admin/jvectorMap/vml-canvas-element.js"></script>
@@ -408,11 +393,9 @@
     <script src="/js/admin/jvectorMap/vml-path-element.js"></script>
     <script src="/js/admin/jvectorMap/vml-circle-element.js"></script>
     <script src="/js/admin/jvectorMap/vml-image-element.js"></script>
-
     <script src="/js/admin/jvectorMap/map-object.js"></script>
     <script src="/js/admin/jvectorMap/region.js"></script>
     <script src="/js/admin/jvectorMap/marker.js"></script>
-
     <script src="/js/admin/jvectorMap/vector-canvas.js"></script>
     <script src="/js/admin/jvectorMap/simple-scale.js"></script>
     <script src="/js/admin/jvectorMap/ordinal-scale.js"></script>
@@ -422,10 +405,9 @@
     <script src="/js/admin/jvectorMap/data-series.js"></script>
     <script src="/js/admin/jvectorMap/proj.js"></script>
     <script src="/js/admin/jvectorMap/map.js"></script>
-
     <script src="/js/admin/jvectorMap/jquery-jvectormap-world-mill-en.js"></script>
     <script>
-        jQuery.noConflict();
+
         jQuery(function(){
             var markers = [
                 {latLng: [40.66, -73.56], name: 'New York City', style: {r: 8, fill: '#ddd'}},
@@ -637,32 +619,31 @@
     </script>
     <script src="/js/admin/piechart/jquery.rotapie.js"></script>
     <script>
-
         jQuery(function(){
             jQuery('#pie').rotapie({
-            slices: [
-                { color: '#00a65a', percentage: 10 }, // If color not set, slice will be transparant.
-                { color: '#f39c12', percentage: 20 }, // Font color to render percentage defaults to 'color' but can be overriden by setting 'fontColor'.
-                { color: '#00c0ef', percentage: 20 },
-                { color: '#dd4b39', percentage: 35 },
-                { color: '#3c8dbc', percentage: 7 },
-                { color: '#d2d6de', percentage: 8 },
-            ],
-            sliceIndex: 0, // Start index selected slice.
-            deltaAngle: 0.2, // The rotation angle in radians between frames, smaller number equals slower animation.
-            minRadius: 100, // Radius of unselected slices, can be set to percentage of container width i.e. '50%'
-            maxRadius: 110, // Radius of selected slice, can be set to percentage of container width i.e. '45%'
-            minInnerRadius: 55, // Smallest radius inner circle when animated, set to 0 to disable inner circle, can be set to percentage of container width i.e. '35%'
-            maxInnerRadius: 65, // Normal radius inner circle, set to 0 to disable inner circle, can be set to percentage of container width i.e. '30%'
-            innerColor: '#fff', // Background color inner circle.
-            minFontSize: 30, // Smallest fontsize percentage when animated, set to 0 to disable percentage display, can be set to percentage of container width i.e. '20%'
-            maxFontSize: 40, // Normal fontsize percentage, set to 0 to disable percentage display, can be set to percentage of container width i.e. '10%'
-            fontYOffset: 0, // Vertically offset the percentage display with this value, can be set to percentage of container width i.e. '-10%'
-            fontFamily: 'Times New Roman', // FontFamily percentage display.
-            fontWeight: 'bold', // FontWeight percentage display.
-            decimalPoint: '.', // Can be set to comma or other symbol.
-            clickable: true // If set to true a user can select a different slice by clicking on it.
+                slices: [
+                    { color: '#00a65a', percentage: 10 }, // If color not set, slice will be transparant.
+                    { color: '#f39c12', percentage: 20 }, // Font color to render percentage defaults to 'color' but can be overriden by setting 'fontColor'.
+                    { color: '#00c0ef', percentage: 20 },
+                    { color: '#dd4b39', percentage: 35 },
+                    { color: '#3c8dbc', percentage: 7 },
+                    { color: '#d2d6de', percentage: 8 },
+                ],
+                sliceIndex: 0, // Start index selected slice.
+                deltaAngle: 0.2, // The rotation angle in radians between frames, smaller number equals slower animation.
+                minRadius: 100, // Radius of unselected slices, can be set to percentage of container width i.e. '50%'
+                maxRadius: 110, // Radius of selected slice, can be set to percentage of container width i.e. '45%'
+                minInnerRadius: 55, // Smallest radius inner circle when animated, set to 0 to disable inner circle, can be set to percentage of container width i.e. '35%'
+                maxInnerRadius: 65, // Normal radius inner circle, set to 0 to disable inner circle, can be set to percentage of container width i.e. '30%'
+                innerColor: '#fff', // Background color inner circle.
+                minFontSize: 30, // Smallest fontsize percentage when animated, set to 0 to disable percentage display, can be set to percentage of container width i.e. '20%'
+                maxFontSize: 40, // Normal fontsize percentage, set to 0 to disable percentage display, can be set to percentage of container width i.e. '10%'
+                fontYOffset: 0, // Vertically offset the percentage display with this value, can be set to percentage of container width i.e. '-10%'
+                fontFamily: 'Times New Roman', // FontFamily percentage display.
+                fontWeight: 'bold', // FontWeight percentage display.
+                decimalPoint: '.', // Can be set to comma or other symbol.
+                clickable: true // If set to true a user can select a different slice by clicking on it.
+            });
         });
-    });
     </script>
-@stop
+@endsection

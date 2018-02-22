@@ -1,6 +1,6 @@
 @extends('users.layouts.master')
 
-@section('title',' Wisper | Home')
+@section('title',' Wispar | Home')
 
 @section('content')
 

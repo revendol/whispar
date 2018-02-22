@@ -31,4 +31,8 @@ class User extends Authenticatable
     public function role(){
         return UserRole::where('user_id',$this->id)->first();
     }
+
+    public function profile(){
+        return 'Bangladesh';
+    }
 }
