@@ -1,4 +1,4 @@
-@extends('admins.layouts.master')
+@extends('Admins.layouts.master')
 @section('title',' Admin Permission Role')
 @section('styles')
     <link rel="stylesheet" href="{{url('')}}/css/admin/admin.css">

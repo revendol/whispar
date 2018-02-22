@@ -1,4 +1,4 @@
-@extends('admins.layouts.master')
+@extends('Admins.layouts.master')
 @section('title',' Admin User List')
 @section('styles')
     <link rel="stylesheet" href="/css/admin/admin.css">

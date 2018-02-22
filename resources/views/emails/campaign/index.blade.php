@@ -1,4 +1,4 @@
-@extends('admins.layouts.master')
+@extends('Admins.layouts.master')
 @section('title',' Email Campaign')
 
 @section('styles')
