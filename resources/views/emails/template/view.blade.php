@@ -1,13 +1,24 @@
-@extends('adminlte::page')
+@extends('admins.layouts.master')
+@section('title',' Email Templates')
 
-@section('title', 'Email Template')
-
-@section('content_header')
-    @include('Admins.partials._error')
-    <h1><i class="fa fa-globe"></i> &nbsp;&nbsp;Email Templates </h1>
-@stop
+@section('styles')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@endsection
 
 @section('content')
+    @include('Admins.partials._error')
+    <section class="content-header">
+        <h1>
+            View Email Templates
+            <small>Control panel</small>
+        </h1>
+        @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">View Email Templates</li>
+        </ol>
+    </section>
+    <section class="content">
     <!-- BEGIN EXAMPLE TABLE PORTLET-->
     <div class="portlet box green">
 
@@ -35,8 +46,7 @@
             </table>
         </div>
     </div>
+    </section>
     <!-- END EXAMPLE TABLE PORTLET-->
 @stop
-@section('css')
-    <link rel="stylesheet" href="/css/admin/admin.css">
-@stop
+

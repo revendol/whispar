@@ -1,14 +1,24 @@
-@extends('adminlte::page')
+@extends('admins.layouts.master')
+@section('title',' Email Campaign')
 
-@section('title', 'Email Campaign')
-
-@section('content_header')
-    @include('Admins.partials._error')
-    <h1><i class="fa fa-globe"></i> &nbsp;&nbsp;Campaign </h1>
-@stop
-
+@section('styles')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@endsection
 
 @section('content')
+    @include('Admins.partials._error')
+    <section class="content-header">
+        <h1>
+            Email Campaign
+            <small>Control panel</small>
+        </h1>
+        @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Email Campaign</li>
+        </ol>
+    </section>
+    <section class="content">
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="box box-primary">
@@ -100,7 +110,6 @@
             </div>
         @endif
     </div>
+    </section>
 @stop
-@section('css')
-    <link rel="stylesheet" href="/css/admin/admin.css">
-@stop
+

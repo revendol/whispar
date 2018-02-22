@@ -1,13 +1,22 @@
-@extends('adminlte::page')
-
-@section('title', 'Admin Role')
-
-@section('content_header')
-    @include('Admins.partials._error')
-    <h1>User List</h1>
-@stop
-
+@extends('admins.layouts.master')
+@section('title',' Admin User List')
+@section('styles')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@endsection
 @section('content')
+    @include('Admins.partials._error')
+    <section class="content-header">
+        <h1>
+            User List
+            <small>Control panel</small>
+        </h1>
+        @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">User List</li>
+        </ol>
+    </section>
+    <section class="content">
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="box box-primary">
@@ -65,11 +74,10 @@
             </div>
         </div>
     </div>
-@stop
-@section('css')
-    <link rel="stylesheet" href="/css/admin/admin.css">
-@stop
-@section('js')
+    </section>
+@endsection
+
+@section('scripts')
     <script>
         $(document).ready(function() {
             $('#example1').DataTable( {
@@ -77,4 +85,4 @@
             } );
         } );
     </script>
-@stop
+@endsection

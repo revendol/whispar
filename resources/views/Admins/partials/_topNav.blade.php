@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b ><img style="height: 40px; width: 40px;" src="/img/logo-small.jpg"/></b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg"><b style="margin-left: -25px;"><img style="height: 40px; width: 40px;margin-right: 5px;" src="/img/logo-small.jpg"/>Wispar</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -215,17 +215,17 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{asset('AdminLTE')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <img src="{{asset('img')}}/{{Auth::user()->profile_pic}}" class="user-image" alt="User Image">
+                        <span class="hidden-xs">{{ Auth::user()->name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{asset('AdminLTE')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="{{asset('img')}}/{{Auth::user()->profile_pic}}" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {{ Auth::user()->name }} - {{ Auth::user()->role()->role()->display_name }}
+                                <small>Member since {{ date('d M, Y',strtotime(Auth::user()->created_at)) }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
@@ -246,10 +246,16 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ url('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                   class="btn btn-default btn-flat">Sign out</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                         </li>
                     </ul>

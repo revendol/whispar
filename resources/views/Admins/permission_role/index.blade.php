@@ -1,13 +1,25 @@
-@extends('adminlte::page')
-
-@section('title', 'Admin Permission-Role')
-
-@section('content_header')
-    @include('Admins.partials._error')
-    <h1>Permission & Roles</h1>
-@stop
-
+@extends('admins.layouts.master')
+@section('title',' Admin Permission Role')
+@section('styles')
+    <link rel="stylesheet" href="{{url('')}}/css/admin/admin.css">
+    <!--  Material Dashboard CSS    -->
+    <link href="{{url('')}}/css/admin/material-dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" media="all" href="/css/admin/jvectorMap/jquery-jvectormap.css"/>
+@endsection
 @section('content')
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Permission Role
+            <small>Control panel</small>
+        </h1>
+        @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Permission Role</li>
+        </ol>
+    </section>
+    <section class="content">
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="box box-primary">
@@ -113,11 +125,10 @@
         </div>
         @endif
     </div>
+    </section>
 @stop
-@section('css')
-    <link rel="stylesheet" href="/css/admin/admin.css">
-@stop
-@section('js')
+
+@section('styles')
     <script>
         $(document).ready(function() {
             $('#example1').DataTable( {

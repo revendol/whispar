@@ -1,10 +1,12 @@
+<?php $url = Request::url(); ?>
+
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{asset('AdminLTE')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{asset('img')}}/{{Auth::user()->profile_pic}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
@@ -25,12 +27,12 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
+            <li>
                 <a href="{{ url('admin') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview @if(strpos($url,'role') || strpos($url,'permission')) active @endif">
                 <a href="#">
                     <i class="fa fa-laptop"></i> <span>ACL</span>
                     <span class="pull-right-container">
@@ -48,13 +50,25 @@
                             <li><a href="{{ url('admin/roles') }}"><i class="fa fa-circle-o"></i> Role</a></li>
                             <li><a href="{{ url('admin/permission-role') }}"><i class="fa fa-circle-o"></i> Permission & Role</a></li>
                             <li><a href="{{ url('admin/user-role') }}"><i class="fa fa-circle-o"></i> User & Role</a></li>
-
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Permission</a></li>
+                    <li><a href="{{ url('admin/permissions') }}"><i class="fa fa-circle-o"></i> Permission</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview @if(strpos($url,'user-list')||strpos($url,'user-manage')||strpos($url,'user-trash')) active @endif">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>User Management</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('admin/user-list') }}"><i class="fa fa-circle-o"></i> User List</a></li>
+                    <li><a href="{{ url('admin/user-manage') }}"><i class="fa fa-circle-o"></i> User Manage</a></li>
+                    <li><a href="{{ url('admin/user-trash') }}"><i class="fa fa-circle-o"></i> Trash</a></li>
+                </ul>
+            </li>
+            <li class="treeview @if(strpos($url,'campaigns') || strpos($url,'templates')) active @endif">
                 <a href="#">
                     <i class="fa fa-envelope"></i> <span>Email</span>
                     <span class="pull-right-container">

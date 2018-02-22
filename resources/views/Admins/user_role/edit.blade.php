@@ -1,13 +1,24 @@
-@extends('adminlte::page')
+@extends('admins.layouts.master')
+@section('title',' Admin user role')
 
-@section('title', 'Admin Permission-Role')
-
-@section('content_header')
-    @include('Admins.partials._error')
-    <h1>Edit User & Roles</h1>
-@stop
+@section('styles')
+    <link rel="stylesheet" href="/css/admin/admin.css">
+@endsection
 
 @section('content')
+    @include('Admins.partials._error')
+    <section class="content-header">
+        <h1>
+            Edit user roles
+            <small>Control panel</small>
+        </h1>
+        @include('Admins.partials._date_time')
+        <ol class="breadcrumb">
+            <li><a href="{{ url('admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Edit user roles</li>
+        </ol>
+    </section>
+    <section class="content">
     <div class="row">
         @if(Auth::user()->can('provide-user-role'))
             <div class="col-xs-12 col-md-12">
@@ -41,6 +52,7 @@
             </div>
         @endif
     </div>
+    </section>
 @stop
 @section('css')
     <link rel="stylesheet" href="/css/admin/admin.css">
